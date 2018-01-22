@@ -50,7 +50,7 @@ The type represents, at a high level, what kind of data is represented in a fiel
 - datetime
 	- properties - any special properties that belong to the type
 		- format - A string representing the datetime format
-- id
+- id
 	- subtype - A string representing the subtypes
 		- primary
 	- properties - any special properties that belong to the type
