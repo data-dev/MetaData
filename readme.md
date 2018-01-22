@@ -1,7 +1,7 @@
 # MetaJson
 This project formalizes a way to describe the structure of a relational database in JSON. 
 
-### [Check the documentation of MetaJson.](https://HDI-Project.github.io/MetaJson)
+### [Check the documentation of MetaJson.](https://HDI-Project.github.io/MetaJson/)
 
 ### For any comments or suggestions, please go to [Issues](https://github.com/HDI-Project/MetaJson/issues). 
 
