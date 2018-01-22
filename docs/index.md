@@ -1,4 +1,3 @@
-# Meta.json
 The meta.json file is a json object consisting of multiple parts. At the highest level of the object, there is information about the path to the dataset and a list of table objects each representing a data table in the dataset. Each table object contains information about its row and other important information. The structure of the meta.json object is described below.
 
 ## Meta Object
