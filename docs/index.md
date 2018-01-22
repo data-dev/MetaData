@@ -162,7 +162,7 @@ Constraints is list of inequality and equality objects.
 - type - A string representing the type of the variables being compared
 sequential - For rows only. A boolean representing if the rows must come one after the other for the given groupby value
 
-###Equality Object
+### Equality Object
 - expression1 - Either a product object, sum object, list of column objects or list of row objects, representing one of the expressions in the equality
 - expression2 - Either a product object, sum object, list of column objects or list of row objects, representing one of the expressions in the equality
 - type - A string representing the type of the variables being compared
