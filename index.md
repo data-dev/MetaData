@@ -23,6 +23,7 @@ The meta.json file is a json object consisting of multiple parts. At the highest
 Ref Object
 - **table** - A string representing the name of the table that’s primary key is being referenced.
 - **field** - A string representing the name of the field that is the primary key being referenced.
+- **transformer** - A string representing the class name of the transformer to be used on this field during data preparation. This is an optional parameter.
 
 ## Types
 The type represents, at a high level, what kind of data is represented in a field. Some types can be broken down into more specific subtypes. Below are the types with each of the subtypes that they have and any other parameters that need to be defined.
