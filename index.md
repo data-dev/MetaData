@@ -8,10 +8,13 @@ The meta.json file is a json object consisting of multiple parts. At the highest
 - **path** - a string containing the path to the table’s csv file
 - **name** - a string representing the name of the table for reference
 - **primary_key** - a string containing the name of the primary key
-- **headers** - boolean that is true if the table contains a header row and false otherwise. 
+- **time_index** -  a string containing the name of the time index, if one exists
+- **secondary_time_index** - a dict mapping names of each secondary time index to columns that were known at the time specified by this field
+- **headers** - boolean that is true if the table contains a header row and false otherwise.
 - **number_of_rows** - integer representing the number of rows in the table
 - **fields** - A list of field objects in the table
 - **hard_constraints** - An object containing lists of hard constraints in the table
+- **entities_to_normalize** - List of Normalize Entity Objects to use to normalize out additional tables/entities
 
 ## Field Object
 - **name** - a string representing the name of the field
@@ -28,7 +31,7 @@ Ref Object
 ## Types
 The type represents, at a high level, what kind of data is represented in a field. Some types can be broken down into more specific subtypes. Below are the types with each of the subtypes that they have and any other parameters that need to be defined.
 
-- categorical - Data that can falls under a set of different categories. 
+- categorical - Data that can falls under a set of different categories.
 	- subtype - A string representing the subtypes
 		- categorical
 		- ordered - The categories can be ordered in some way, like the months of a year
@@ -46,8 +49,12 @@ The type represents, at a high level, what kind of data is represented in a fiel
 		- float
 - geolocation
 	- subtype  - A string representing the subtypes
+		- latlong - will treat data as strings of (lat, long)
+        - can supply "sep" as well to specify that lat, long are separate by something other than ", "
 		- latitude
 		- longitude
+  - geo_name - A string specifying what the resulting (lat, long) pair column name will be
+  - geo_ref - A string specifying the name of the other paired geo column (lat-> long, long->lat)
 - datetime
 	- properties - any special properties that belong to the type
 		- format - A string representing the datetime format
@@ -58,7 +65,9 @@ The type represents, at a high level, what kind of data is represented in a fiel
 		- regex - A string representing the regex that defines a valid ID. Regex or regular expressions are special text strings that describe a pattern
 - other - any type that doesn’t fit the ones described above
 
-## Sample meta.json
+
+
+## Sample metadata.json
 ```
 {
     "path": "",
@@ -68,6 +77,10 @@ The type represents, at a high level, what kind of data is represented in a fiel
             "name": "users",
             "use": true,
             "headers": true,
+            "time_index": "date_account_created",
+            "secondary_time_index": {
+                "date_first_booking": ["first_booking_name"]
+            },
             "fields": [
                 {
                     "name": "id",
@@ -118,6 +131,32 @@ The type represents, at a high level, what kind of data is represented in a fiel
                     "type": "categorical",
                     "subtype": "categorical",
                     "uniques": 3
+                }
+                {
+                    "name": "latitude",
+                    "type": "geolocation",
+                    "subtype": "latitude",
+                    "geo_name": "latlong1",
+                    "geo_ref": "longitude",
+                    "uniques": 3
+                },
+                {
+                    "name": "longitude",
+                    "type": "geolocation",
+                    "subtype": "longitude",
+                    "geo_name": "latlong1",
+                    "geo_ref": "latitude",
+                    "uniques": 3
+                },
+                {
+                    "name": "latlong2",
+                    "type": "geolocation",
+                    "subtype": "latlong",
+                    "uniques": 3
+                },
+                {
+                  "name": "first_booking_name",
+                  "type": "categorical"
                 }
             ],
             "primary_key": "id",
@@ -185,3 +224,14 @@ Expression objects must have either a list of columns or rows, but not both. If 
 - rows - A list of row objects in the expression
 - product - A boolean denoting if the row objects or column objects should be multiplied
 - sum - A boolean representing if the rows or columns should be added
+
+### Normalize Entity Object
+  - **base_entity_id** - Base entity id to normalize from
+  - **new_entity_id** - new entity id to create
+  - **index** - column to use as the new entity index
+  - **additional_variables** - additional columns to pull out of base entity
+  - **copy_variables** - additional columns to copy from base entity
+  - **make_time_index** - make a time index in the new entity
+  - **time_index_reduce** - either "first" or "last", to use the first or last time from duplicate entries in base entity
+  - **new_entity_time_index** - name to use as new entity time index
+  - **convert_links_to_integers** - create a new column with integers to use as the relationship between the two entities
