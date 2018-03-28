@@ -18,6 +18,7 @@ The meta.json file is a json object consisting of multiple parts. At the highest
 
 ## Field Object
 - **name** - a string representing the name of the field
+- **original_name** - a string representing the name of the field in the original file. This field will have its name updated to **name**
 - **type** - A string representing the type of the field
 - **subtype** - A string representing the subtype. Only some types have subtypes (See Types section)
 - **properties** - any special properties that belong to the type. Only applies to certain types (See Types section)
