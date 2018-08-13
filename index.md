@@ -8,7 +8,7 @@ The meta.json file is a json object consisting of multiple parts. At the highest
 - **path** - a string containing the path to the table’s csv file
 - **name** - a string representing the name of the table for reference
 - **primary_key** - a string containing the name of the primary key
-- **headers** - boolean that is true if the table contains a header row and false otherwise. 
+- **headers** - boolean that is true if the table contains a header row and false otherwise.
 - **number_of_rows** - integer representing the number of rows in the table
 - **fields** - A list of field objects in the table
 - **hard_constraints** - An object containing lists of hard constraints in the table
@@ -28,18 +28,27 @@ Ref Object
 ## Types
 The type represents, at a high level, what kind of data is represented in a field. Some types can be broken down into more specific subtypes. Below are the types with each of the subtypes that they have and any other parameters that need to be defined.
 
-- categorical - Data that can falls under a set of different categories. 
+- categorical - Data that can falls under a set of different categories.
 	- subtype - A string representing the subtypes
 		- categorical
 		- ordered - The categories can be ordered in some way, like the months of a year
 		- boolean - The data can fall into two categories, true or false
 - text
 	- subtype - A string representing the subtypes
+		- address
+		- name
+		- first name male
+		- first name female
+		- last name female
+		- last name male
+		- phone number
+		- credit card
 - digital location - any type of digital address
 	- subtype - A string representing the subtypes
 		- MAC address
 		- URL
 		- IP address
+		- email
 - number
 	- subtype - A string representing the subtypes
 		- integer
