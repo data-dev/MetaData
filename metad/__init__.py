@@ -5,3 +5,7 @@
 __author__ = 'MIT Data To AI Lab'
 __email__ = 'dailabmit@gmail.com'
 __version__ = '0.0.1'
+
+from .metadata import MetaData
+
+__all__ = ["MetaData"]

@@ -12,6 +12,10 @@ with open('HISTORY.md', encoding='utf-8') as history_file:
     history = history_file.read()
 
 install_requires = [
+    'docopt',
+    'pandas',
+    'pymysql',
+    'fastjsonschema',
 ]
 
 setup_requires = [
@@ -87,4 +91,7 @@ setup(
     url='https://github.com/data-dev/MetaData',
     version='0.0.1',
     zip_safe=False,
+    entry_points={
+        'console_scripts': ['metad = metad.__main__:main']
+    }
 )
