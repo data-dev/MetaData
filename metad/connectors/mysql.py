@@ -5,16 +5,19 @@ import pandas as pd
 import pymysql
 
 from metad import MetaData
-
-from .base import BaseConnector
+from metad.connectors.base import BaseConnector
 
 
 class MySQLConnector(BaseConnector):
+    """Import data from MySQL instances.
+
+    The MySQLConnector allows you to import data from a MySQL instance
+    by translating the data types and exporting the primary / foreign key
+    constraints from the schema table.
+    """
 
     def __init__(self, host, port, user, password, database):
-        """The MySQLConnector allows you to import data from a MySQL instance
-        by translating the data types and exporting the primary / foreign key
-        constraints from the schema table.
+        """Create a new MySQLConnector.
 
         Args:
             host (str): The host name / ip address of the MySQL instance.

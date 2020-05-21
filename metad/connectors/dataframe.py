@@ -1,10 +1,16 @@
 import copy
 import os
 
-from .base import BaseConnector
+from metad.connectors.base import BaseConnector
 
 
 class DataFrameConnector(BaseConnector):
+    """Import data from pandas DataFrames.
+
+    The DataFrameConnector allows you to import data from pandas
+    DataFrames. It automatically populates the tables and fields; it also
+    infers the data types from the data.
+    """
 
     _FIELD_TEMPLATES = {
         'i': {
@@ -27,10 +33,7 @@ class DataFrameConnector(BaseConnector):
     }
 
     def __init__(self, tables):
-        """The DataFrameConnector allows you to import data from pandas
-        DataFrames. It automatically populates the tables and fields; it also
-        infers the data types from the data. Note that it does not attempt
-        to detect primary/foreign key relationships.
+        """Create a new DataFrameConnector.
 
         Args:
             tables (dict): A dictionary mapping from table names to pandas

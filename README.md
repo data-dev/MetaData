@@ -7,13 +7,13 @@
 [![Github Actions Shield](https://img.shields.io/github/workflow/status/data-dev/MetaData/Run%20Tests)](https://github.com/data-dev/MetaData/actions)
 [![Coverage Status](https://codecov.io/gh/data-dev/MetaData/branch/master/graph/badge.svg)](https://codecov.io/gh/data-dev/MetaData)
 
+<p style="margin-bottom:1em;"></p>
 
-
-# Overview
+# MetaData
 
 This project aims to formally define a JSON schema which captures the structure of a relational database.
 
-- Schema: https://data-dev.github.io/MetaData/schema.html
+- JSON Schema: https://data-dev.github.io/MetaData/schema.html
 - Documentation: https://data-dev.github.io/MetaData
 - Homepage: https://github.com/data-dev/MetaData
 
@@ -76,21 +76,12 @@ Please head to the [Contributing Guide](https://data-dev.github.io/MetaData/cont
 for more details about this process.
 
 # Quickstart
+
 In this short tutorial we will guide you through a series of steps that will help you
 getting started with **MetaData**.
 
-## Validating JSON Files
-The core functionality of this library is to validate JSON files. The following code will load 
-the metadata file for the `hello_world` dataset and validate it.
-
-```python
-from metad import MetaData
-
-metadata = MetaData.from_json("examples/hello_world/metadata.json")
-metadata.validate()
-```
-
 ## Creating Metadata Objects
+
 You can also help create Metadata objects from scratch. The following code will create a 
 `MetaData` object, add a table, and then save it to a JSON file.
 
@@ -107,8 +98,24 @@ metadata.add_table({
         {"name": "name", "data_type": "text"}
     ],
 })
+```
 
+Then, to export this object to a JSON file, you can run the following:
+
+```
 metadata.to_json("your_metadata.json")
+```
+
+## Validating JSON Files
+
+The core functionality of this library is to validate JSON files. The following code will load 
+the metadata file for the `hello_world` dataset and validate it.
+
+```python
+from metad import MetaData
+
+metadata = MetaData.from_json("examples/hello_world/metadata.json")
+metadata.validate()
 ```
 
 # What's next?

@@ -23,6 +23,11 @@ If you are proposing modifying the schema, please include:
  * Discuss the benefits and drawbacks of the changes.
  * Suggest a plan for maintaining backwards compatability.
 
+After being reviewed and reaching consensus:
+
+ * Create a pull request updating the schema file.
+ * Update the version number and create a new release.
+
 Report Bugs
 ~~~~~~~~~~~
 

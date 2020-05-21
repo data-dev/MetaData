@@ -11,12 +11,15 @@ with open(path_to_schema, "rt") as fin:
 
 
 class MetaData():
+    """Read, write, and validate metadata.
+
+    The MetaData object provides methods to help read, write, and validate
+    metadata. It uses the JSON schema, which can be found in `schema.json`,
+    to validate the structure of the metadata and applies additional logic
+    checks internally.
+    """
 
     def __init__(self):
-        """
-        The MetaData object provides methods to help create, save, and load
-        metadata objects.
-        """
         self.data = {
             "tables": [],
             "foreign_keys": [],
@@ -60,7 +63,7 @@ class MetaData():
 
     @staticmethod
     def from_json(path_to_json):
-        """This loads a MetaData object from a JSON file.
+        """Load a MetaData object from a JSON file.
 
         Args:
             path_to_json (str): The path to the JSON file.
@@ -74,9 +77,11 @@ class MetaData():
         return metadata
 
     def validate(self):
-        """This validates the metadata against the JSON schema. It also
-        performs additional checks (i.e. that table/field names are unique)
-        to ensure that the metadata is valid.
+        """Validate the contents of this metadata object.
+
+        This validates the metadata against the JSON schema. It also performs
+        additional logic checks (i.e. that table/field names are unique) to
+        ensure that the metadata is valid.
 
         Raises:
             AssertionError: If the metadata is not valid.
@@ -113,8 +118,9 @@ class MetaData():
                     assert (field["table"], field["field"]) in field_names, field
 
     def add_table(self, table):
-        """This adds the table object to the metadata. The table object must
-        conform the the JSON schema specification.
+        """Add the table object to the metadata.
+
+        The table object must conform the the JSON schema specification.
 
         Args:
             table (dict): A dictionary representing the table.
@@ -123,8 +129,9 @@ class MetaData():
         self.validate()
 
     def add_foreign_key(self, foreign_key):
-        """This adds the foreign key object to the metadata. The foreign key object must
-        conform the the JSON schema specification.
+        """Add the foreign key object to the metadata.
+
+        The foreign key object must conform the the JSON schema specification.
 
         Args:
             foreign_key (dict): A dictionary representing the foreign key relationship.
@@ -135,8 +142,9 @@ class MetaData():
         self.validate()
 
     def add_constraint(self, constraint):
-        """This adds the constraint object to the metadata. constraint table object must
-        conform the the JSON schema specification.
+        """Add the constraint object to the metadata.
+
+        The constraint table object must conform the the JSON schema specification.
 
         Args:
             constraint (dict): A dictionary representing the constraint relationship.

@@ -71,7 +71,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    description='This project aims to formally define a JSON schema which captures the structure of a relational database.',
+    description='A hierarchical representation for the structure of a relational database.',
     extras_require={
         'test': tests_require,
         'dev': development_requires + tests_require,
