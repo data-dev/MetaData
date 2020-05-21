@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>metad package &mdash; MetaData 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/dai-logo-white.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="metad.connectors package" href="metad.connectors.html" />
+    <link rel="prev" title="JSON Schema" href="../schema.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MetaData
+          
+
+          
+            
+            <img src="../_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-for-development">Install for Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#validating-json-files">Validating JSON Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#creating-metadata-objects">Creating Metadata Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schema.html">JSON Schema</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../schema.html#tables">Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../schema.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../schema.html#foreign-keys">Foreign Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../schema.html#constraints">Constraints</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metad.connectors.html">metad.connectors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="metad.connectors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metad.connectors.html#module-metad.connectors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metad.metadata.html">metad.metadata module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-metad">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#schema-changes">Schema Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MetaData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>metad package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/data-dev/MetaData/blob/master/docs/api/metad.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metad-package">
+<h1>metad package<a class="headerlink" href="#metad-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="metad.connectors.html">metad.connectors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metad.connectors.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metad.connectors.base.html">metad.connectors.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metad.connectors.dataframe.html">metad.connectors.dataframe module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metad.connectors.mysql.html">metad.connectors.mysql module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metad.connectors.html#module-metad.connectors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="metad.metadata.html">metad.metadata module</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-metad">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-metad" title="Permalink to this headline">¶</a></h2>
+<p>Top-level package for MetaData.</p>
+<p><strong>Classes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData" title="metad.MetaData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaData</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="metad.MetaData">
+<em class="property">class </em><code class="sig-prename descclassname">metad.</code><code class="sig-name descname">MetaData</code><a class="reference internal" href="../_modules/metad/metadata.html#MetaData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData.add_constraint" title="metad.MetaData.add_constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_constraint</span></code></a>(constraint)</p></td>
+<td><p>This adds the constraint object to the metadata.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#metad.MetaData.add_field" title="metad.MetaData.add_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_field</span></code></a>(table_name, field)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData.add_foreign_key" title="metad.MetaData.add_foreign_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_foreign_key</span></code></a>(foreign_key)</p></td>
+<td><p>This adds the foreign key object to the metadata.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#metad.MetaData.add_table" title="metad.MetaData.add_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_table</span></code></a>(table)</p></td>
+<td><p>This adds the table object to the metadata.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData.from_json" title="metad.MetaData.from_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_json</span></code></a>(path_to_json)</p></td>
+<td><p>This loads a MetaData object from a JSON file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#metad.MetaData.get_foreign_keys" title="metad.MetaData.get_foreign_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_foreign_keys</span></code></a>([table_name])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData.get_table" title="metad.MetaData.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#metad.MetaData.get_table_names" title="metad.MetaData.get_table_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table_names</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData.get_tables" title="metad.MetaData.get_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tables</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#metad.MetaData.set_foreign_keys" title="metad.MetaData.set_foreign_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_foreign_keys</span></code></a>(foreign_keys)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData.set_tables" title="metad.MetaData.set_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_tables</span></code></a>(tables)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#metad.MetaData.to_json" title="metad.MetaData.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>([path_to_json])</p></td>
+<td><p>Export the MetaData object to a JSON file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#metad.MetaData.validate" title="metad.MetaData.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>()</p></td>
+<td><p>This validates the metadata against the JSON schema.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="metad.MetaData.add_constraint">
+<code class="sig-name descname">add_constraint</code><span class="sig-paren">(</span><em class="sig-param">constraint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.add_constraint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.add_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>This adds the constraint object to the metadata. constraint table object must
+conform the the JSON schema specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>constraint</strong> (<em>dict</em>) – A dictionary representing the constraint relationship.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.add_field">
+<code class="sig-name descname">add_field</code><span class="sig-paren">(</span><em class="sig-param">table_name</em>, <em class="sig-param">field</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.add_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.add_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.add_foreign_key">
+<code class="sig-name descname">add_foreign_key</code><span class="sig-paren">(</span><em class="sig-param">foreign_key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.add_foreign_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.add_foreign_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>This adds the foreign key object to the metadata. The foreign key object must
+conform the the JSON schema specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>foreign_key</strong> (<em>dict</em>) – A dictionary representing the foreign key relationship.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.add_table">
+<code class="sig-name descname">add_table</code><span class="sig-paren">(</span><em class="sig-param">table</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.add_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.add_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>This adds the table object to the metadata. The table object must
+conform the the JSON schema specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>dict</em>) – A dictionary representing the table.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.from_json">
+<em class="property">static </em><code class="sig-name descname">from_json</code><span class="sig-paren">(</span><em class="sig-param">path_to_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>This loads a MetaData object from a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path_to_json</strong> (<em>str</em>) – The path to the JSON file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An instance of the MetaData object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#metad.MetaData" title="metad.MetaData">MetaData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.get_foreign_keys">
+<code class="sig-name descname">get_foreign_keys</code><span class="sig-paren">(</span><em class="sig-param">table_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.get_foreign_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.get_foreign_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.get_table">
+<code class="sig-name descname">get_table</code><span class="sig-paren">(</span><em class="sig-param">table_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.get_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.get_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.get_table_names">
+<code class="sig-name descname">get_table_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.get_table_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.get_table_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.get_tables">
+<code class="sig-name descname">get_tables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.get_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.get_tables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.set_foreign_keys">
+<code class="sig-name descname">set_foreign_keys</code><span class="sig-paren">(</span><em class="sig-param">foreign_keys</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.set_foreign_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.set_foreign_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.set_tables">
+<code class="sig-name descname">set_tables</code><span class="sig-paren">(</span><em class="sig-param">tables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.set_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.set_tables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.to_json">
+<code class="sig-name descname">to_json</code><span class="sig-paren">(</span><em class="sig-param">path_to_json=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export the MetaData object to a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_to_json</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to the JSON file</p></li>
+<li><p><strong>should be created. If set to None</strong><strong>, </strong><strong>the JSON object</strong> (<em>which</em>) – </p></li>
+<li><p><strong>returned as a string.</strong> (<em>is</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="metad.MetaData.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.MetaData.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This validates the metadata against the JSON schema. It also
+performs additional checks (i.e. that table/field names are unique)
+to ensure that the metadata is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If the metadata is not valid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="metad.connectors.html" class="btn btn-neutral float-right" title="metad.connectors package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../schema.html" class="btn btn-neutral float-left" title="JSON Schema" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+metad.connectors package
+========================
+
+Submodules
+----------
+
+.. toctree::
+
+   metad.connectors.base
+   metad.connectors.dataframe
+   metad.connectors.mysql
+
+Module contents
+---------------
+
+.. automodule:: metad.connectors
+   :members:
+   :undoc-members:
+   :show-inheritance:

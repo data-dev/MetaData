@@ -1,0 +1,7 @@
+metad.connectors.mysql module
+=============================
+
+.. automodule:: metad.connectors.mysql
+   :members:
+   :undoc-members:
+   :show-inheritance:

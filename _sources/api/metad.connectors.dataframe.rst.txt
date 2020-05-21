@@ -1,0 +1,7 @@
+metad.connectors.dataframe module
+=================================
+
+.. automodule:: metad.connectors.dataframe
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+metad.connectors.base module
+============================
+
+.. automodule:: metad.connectors.base
+   :members:
+   :undoc-members:
+   :show-inheritance:

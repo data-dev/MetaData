@@ -1,0 +1,24 @@
+metad package
+=============
+
+Subpackages
+-----------
+
+.. toctree::
+
+   metad.connectors
+
+Submodules
+----------
+
+.. toctree::
+
+   metad.metadata
+
+Module contents
+---------------
+
+.. automodule:: metad
+   :members:
+   :undoc-members:
+   :show-inheritance:
