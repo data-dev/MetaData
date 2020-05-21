@@ -2,12 +2,7 @@
 Credits
 =======
 
-Development Lead
-----------------
-
+* Kalyan Veeramachaneni <kalyan@csail.mit.edu>
+* Carles Sala <carles@pythiac.com>
 * Kevin Alex Zhang <kevz@mit.edu>
-
-Contributors
-------------
-
-None yet. Why not be the first?
+* Felipe Hofmann <fealho@mit.edu>

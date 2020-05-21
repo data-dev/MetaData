@@ -10,6 +10,7 @@
    :caption: Resources
    :hidden:
 
+   schema
    API Reference <api/metad>
    contributing
    authors

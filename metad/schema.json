@@ -17,15 +17,30 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The name of the table."
-                    },
                     "path": {
                         "type": "string",
                         "description": "The path to the CSV file."
                     },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the table."
+                    },
                     "primary_key": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "description": "The name of the field which is the primary key."
+                            }, 
+                            {
+                                "type": "array",
+                                "description": "The name of the field(s) which form the composite primary key.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        ]
+                    },
+                    "time_index": {
                         "anyOf": [
                             {
                                 "type": "string",
@@ -174,9 +189,6 @@
                                 }
                             }
                         }
-                    },
-                    "expression": {
-                        "type": "object"
                     }
                 },
                 "required": ["constraint_type", "fields_under_consideration"]

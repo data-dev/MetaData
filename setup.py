@@ -16,6 +16,7 @@ install_requires = [
     'pandas',
     'pymysql',
     'fastjsonschema',
+    'parameterized',
 ]
 
 setup_requires = [

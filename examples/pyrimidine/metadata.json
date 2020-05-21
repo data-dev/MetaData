@@ -1,0 +1,80 @@
+{
+  "tables": [
+    {
+      "name": "molecule",
+      "primary_key": "molecule_id",
+      "fields": [
+        {
+          "name": "molecule_id",
+          "data_type": "numerical"
+        },
+        {
+          "name": "activity",
+          "data_type": "numerical"
+        }
+      ]
+    },
+    {
+      "name": "position",
+      "primary_key": [
+        "molecule_id",
+        "position"
+      ],
+      "fields": [
+        {
+          "name": "molecule_id",
+          "data_type": "numerical"
+        },
+        {
+          "name": "position",
+          "data_type": "numerical"
+        },
+        {
+          "name": "flex",
+          "data_type": "numerical"
+        },
+        {
+          "name": "h_acceptor",
+          "data_type": "numerical"
+        },
+        {
+          "name": "h_doner",
+          "data_type": "numerical"
+        },
+        {
+          "name": "pi_acceptor",
+          "data_type": "numerical"
+        },
+        {
+          "name": "pi_doner",
+          "data_type": "numerical"
+        },
+        {
+          "name": "polar",
+          "data_type": "numerical"
+        },
+        {
+          "name": "polarisable",
+          "data_type": "numerical"
+        },
+        {
+          "name": "sigma",
+          "data_type": "numerical"
+        },
+        {
+          "name": "size",
+          "data_type": "numerical"
+        }
+      ]
+    }
+  ],
+  "foreign_keys": [
+    {
+      "table": "position",
+      "field": "molecule_id",
+      "ref_table": "molecule",
+      "ref_field": "molecule_id"
+    }
+  ],
+  "constraints": []
+}

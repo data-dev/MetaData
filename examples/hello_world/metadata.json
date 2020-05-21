@@ -1,0 +1,49 @@
+{
+    "path": "/path/to/dataset",
+    "tables": [
+        {
+            "name": "users",
+            "fields": [
+                {"name": "user_id"},
+                {"name": "firstname"},
+                {"name": "lastname"},
+                {"name": "total"}
+            ]
+        },
+        {
+            "name": "transactions",
+            "fields": [
+                {"name": "tx_id"},
+                {"name": "tx_uid"},
+                {"name": "sender_first"},
+                {"name": "sender_last"},
+                {"name": "amount"}
+            ]
+        }
+    ],
+    "foreign_keys": [
+        {
+            "table": "transactions",
+            "field": "tx_uid",
+            "ref_table": "users",
+            "ref_field": "user_id"
+        },
+        {
+            "table": "transactions",
+            "field": ["sender_first", "sender_last"],
+            "ref_table": "users",
+            "ref_field": ["firstname", "lastname"]
+        }
+    ],
+    "constraints": [
+        {
+            "constraint_type": "validity",
+            "fields_under_consideration": [
+                {"table": "users", "field": "total"}
+            ],
+            "related_fields": [
+                {"table": "transactions", "field": "amount"}
+            ]
+        }
+    ]
+}

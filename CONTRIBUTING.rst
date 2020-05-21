@@ -12,6 +12,17 @@ You can contribute in many ways:
 Types of Contributions
 ----------------------
 
+Schema Changes
+~~~~~~~~~~~
+
+Propose changes to the schema at `GitHub Issues page`_.
+
+If you are proposing modifying the schema, please include:
+
+ * Explain in detail what the changes are.
+ * Discuss the benefits and drawbacks of the changes.
+ * Suggest a plan for maintaining backwards compatability.
+
 Report Bugs
 ~~~~~~~~~~~
 

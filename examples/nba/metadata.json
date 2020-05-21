@@ -1,0 +1,192 @@
+{
+  "tables": [
+    {
+      "name": "Actions",
+      "primary_key": [
+        "GameId",
+        "PlayerId"
+      ],
+      "fields": [
+        {
+          "name": "GameId",
+          "data_type": "numerical"
+        },
+        {
+          "name": "TeamId",
+          "data_type": "numerical"
+        },
+        {
+          "name": "PlayerId",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Minutes",
+          "data_type": "numerical"
+        },
+        {
+          "name": "FieldGoalsMade",
+          "data_type": "numerical"
+        },
+        {
+          "name": "FieldGoalAttempts",
+          "data_type": "numerical"
+        },
+        {
+          "name": "3PointsMade",
+          "data_type": "numerical"
+        },
+        {
+          "name": "3PointAttempts",
+          "data_type": "numerical"
+        },
+        {
+          "name": "FreeThrowsMade",
+          "data_type": "numerical"
+        },
+        {
+          "name": "FreeThrowAttempts",
+          "data_type": "numerical"
+        },
+        {
+          "name": "PlusMinus",
+          "data_type": "numerical"
+        },
+        {
+          "name": "OffensiveRebounds",
+          "data_type": "numerical"
+        },
+        {
+          "name": "DefensiveRebounds",
+          "data_type": "numerical"
+        },
+        {
+          "name": "TotalRebounds",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Assists",
+          "data_type": "numerical"
+        },
+        {
+          "name": "PersonalFouls",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Steals",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Turnovers",
+          "data_type": "numerical"
+        },
+        {
+          "name": "BlockedShots",
+          "data_type": "numerical"
+        },
+        {
+          "name": "BlocksAgainst",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Points",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Starter",
+          "data_type": "numerical"
+        }
+      ]
+    },
+    {
+      "name": "Game",
+      "primary_key": "GameId",
+      "fields": [
+        {
+          "name": "GameId",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Team1Id",
+          "data_type": "numerical"
+        },
+        {
+          "name": "Team2Id",
+          "data_type": "numerical"
+        },
+        {
+          "name": "ResultOfTeam1",
+          "data_type": "numerical"
+        },
+        {
+          "name": "URL",
+          "data_type": "text"
+        },
+        {
+          "name": "Date",
+          "data_type": "datetime"
+        }
+      ]
+    },
+    {
+      "name": "Player",
+      "primary_key": "PlayerId",
+      "fields": [
+        {
+          "name": "PlayerId",
+          "data_type": "numerical"
+        },
+        {
+          "name": "PlayerName",
+          "data_type": "text"
+        }
+      ]
+    },
+    {
+      "name": "Team",
+      "primary_key": "TeamId",
+      "fields": [
+        {
+          "name": "TeamId",
+          "data_type": "numerical"
+        },
+        {
+          "name": "TeamName",
+          "data_type": "text"
+        }
+      ]
+    }
+  ],
+  "foreign_keys": [
+    {
+      "table": "Actions",
+      "field": "GameId",
+      "ref_table": "Game",
+      "ref_field": "GameId"
+    },
+    {
+      "table": "Actions",
+      "field": "PlayerId",
+      "ref_table": "Player",
+      "ref_field": "PlayerId"
+    },
+    {
+      "table": "Actions",
+      "field": "TeamId",
+      "ref_table": "Team",
+      "ref_field": "TeamId"
+    },
+    {
+      "table": "Game",
+      "field": "Team1Id",
+      "ref_table": "Team",
+      "ref_field": "TeamId"
+    },
+    {
+      "table": "Game",
+      "field": "Team2Id",
+      "ref_table": "Team",
+      "ref_field": "TeamId"
+    }
+  ],
+  "constraints": []
+}

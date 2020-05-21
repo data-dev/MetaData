@@ -1,22 +1,17 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Tests for `metad` package."""
 
-import unittest
+from glob import glob
+from unittest import TestCase
 
-# from metad import metad
+from parameterized import parameterized
+
+from metad import MetaData
 
 
-class TestMetad(unittest.TestCase):
-    """Tests for `metad` package."""
+class TestMetaData(TestCase):
 
-    def setUp(self):
-        """Set up test fixtures, if any."""
-
-    def tearDown(self):
-        """Tear down test fixtures, if any."""
-
-    def test_000_something(self):
-        """Test something."""
-        self.assertTrue(True)
+    @parameterized.expand(glob("examples/**/metadata.json"))
+    def test_validation(self, path_to_example):
+        metadata = MetaData.from_json(path_to_example)
+        metadata.validate()
+        assert str(metadata)

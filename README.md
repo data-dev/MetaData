@@ -9,16 +9,13 @@
 
 
 
-# MetaData
+# Overview
 
 This project aims to formally define a JSON schema which captures the structure of a relational database.
 
+- Schema: https://data-dev.github.io/MetaData/schema.html
 - Documentation: https://data-dev.github.io/MetaData
 - Homepage: https://github.com/data-dev/MetaData
-
-# Overview
-
-TODO: Provide a short overview of the project here.
 
 # Install
 
@@ -79,11 +76,40 @@ Please head to the [Contributing Guide](https://data-dev.github.io/MetaData/cont
 for more details about this process.
 
 # Quickstart
-
 In this short tutorial we will guide you through a series of steps that will help you
 getting started with **MetaData**.
 
-TODO: Create a step by step guide here.
+## Validating JSON Files
+The core functionality of this library is to validate JSON files. The following code will load 
+the metadata file for the `hello_world` dataset and validate it.
+
+```python
+from metad import MetaData
+
+metadata = MetaData.from_json("examples/hello_world/metadata.json")
+metadata.validate()
+```
+
+## Creating Metadata Objects
+You can also help create Metadata objects from scratch. The following code will create a 
+`MetaData` object, add a table, and then save it to a JSON file.
+
+```python
+from metad import MetaData
+
+metadata = MetaData()
+
+metadata.add_table({
+    "name": "users",
+    "primary_key": "id",
+    "fields": [
+        {"name": "id", "data_type": "id"},
+        {"name": "name", "data_type": "text"}
+    ],
+})
+
+metadata.to_json("your_metadata.json")
+```
 
 # What's next?
 
