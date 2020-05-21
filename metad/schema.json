@@ -1,0 +1,199 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://github.com/data-dev/MetaData.json",
+    "title": "Metadata.JSON",
+    "description": "The structure of a relational database.",
+    "type": "object",
+    "properties": {
+        "path": {
+            "type": "string",
+            "description": "The path to the dataset."
+        },
+        "tables": {
+            "description": "The list of tables.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "The path to the CSV file."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the table."
+                    },
+                    "primary_key": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "description": "The name of the field which is the primary key."
+                            }, 
+                            {
+                                "type": "array",
+                                "description": "The name of the field(s) which form the composite primary key.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        ]
+                    },
+                    "time_index": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "description": "The name of the field which is the primary key."
+                            }, 
+                            {
+                                "type": "array",
+                                "description": "The name of the field(s) which form the composite primary key.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        ]
+                    },
+                    "headers": {
+                        "type": "boolean",
+                        "description": "Whether the data file has headers."
+                    },
+                    "number_of_rows": {
+                        "type": "integer",
+                        "description": "The number of rows in the file."
+                    },
+                    "fields": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "The name of the field."
+                                },
+                                "data_type": {
+                                    "type": "string",
+                                    "enum": ["categorical", "text", "numerical", "datetime", "id", "other"]
+                                },
+                                "data_subtype": {
+                                    "type": "string",
+                                    "enum": ["categorical", "ordinal", "boolean", "integer", "float"]
+                                },
+                                "number_of_uniques": {
+                                    "type": "integer",
+                                    "description": "The number of unique values."
+                                }
+                            },
+                            "required": ["name"]
+                        }
+                    },
+                    "system": {
+                        "type": "string",
+                        "description": "This is the system the table came from."
+                    },
+                    "application": {
+                        "type": "string",
+                        "description": "This is the application the table came from."
+                    }
+                },
+                "required": ["name", "fields"]
+            }
+        },
+        "foreign_keys": {
+            "description": "The list of foreign key relationships.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "table": {
+                        "type": "string",
+                        "description": "The name of the child table."
+                    },
+                    "field": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "description": "The foreign key column."
+                            }, 
+                            {
+                                "type": "array",
+                                "description": "The foreign key columns in a composite key.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        ]
+                    },
+                    "ref_table": {
+                        "type": "string",
+                        "description": "The name of the child table."
+                    },
+                    "ref_field": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "description": "The foreign key column."
+                            }, 
+                            {
+                                "type": "array",
+                                "description": "The foreign key columns in a composite key.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "required": ["table", "field", "ref_table", "ref_field"]
+            }
+        },
+        "constraints": {
+            "description": "The list of constraints.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "constraint_type": {
+                        "type": "string",
+                        "enum": ["lineage", "derivable", "validity", "hard"]
+                    },
+                    "fields_under_consideration": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "table": {
+                                    "type": "string",
+                                    "description": "The table to which the field belongs."
+                                }, 
+                                "field": {
+                                    "type": "string",
+                                    "description": "The name of the field column."
+                                }
+                            }
+                        }
+                    },
+                    "related_fields": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "table": {
+                                    "type": "string",
+                                    "description": "The table to which the field belongs."
+                                }, 
+                                "field": {
+                                    "type": "string",
+                                    "description": "The name of the field column."
+                                }
+                            }
+                        }
+                    }
+                },
+                "required": ["constraint_type", "fields_under_consideration"]
+            }
+        }
+    },
+    "required": ["tables"]
+}
