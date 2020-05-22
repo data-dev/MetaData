@@ -1,4 +1,5 @@
 # JSON Schema
+
 The root object of a Metadata.JSON object contains the following fields.
 
 | **Field**    | **Description**                                        |
@@ -9,6 +10,7 @@ The root object of a Metadata.JSON object contains the following fields.
 | constraints  | This is a list of `Constraint` objects.                |
 
 ## Tables
+
 The `Table` object contains the following fields.
 
 | **Field**      | **Description**                                                                                                                    |
@@ -32,6 +34,7 @@ Each field in the `Table` object is specified by a dictionary containing:
 | data_subtype | This is the subtype which is only defined for some types. |
 
 #### Data Types
+
 The `data_type` and `data_subtype` fields can take on the following values:
 
  - categorical
@@ -44,6 +47,7 @@ The `data_type` and `data_subtype` fields can take on the following values:
  - other
 
 ## Foreign Keys
+
 The `ForeignKey` object contains the following fields.
 
 | **Field** | **Description**                                                                                                                    |
@@ -54,6 +58,7 @@ The `ForeignKey` object contains the following fields.
 | ref_field | This can be either (1) a string representing the foreign key column or (2) a list of strings representing the foreign key columns. |
 
 ## Constraints
+
 The `Constraint` object contains the following fields.
 
 | **Field**                  | **Description**                                                           |
@@ -63,6 +68,7 @@ The `Constraint` object contains the following fields.
 | related_fields             | This is the related field(s) that contribute to the field(s) of interest. |
 
 ### Fields
+
 Each field in the `Contraint` object is specified by a dictionary containing:
 
 | **Field** | **Description**         |

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "https://github.com/data-dev/MetaData.json",
+    "$id": "https://github.com/data-dev/MetaData",
     "title": "Metadata.JSON",
     "description": "The structure of a relational database.",
     "type": "object",
