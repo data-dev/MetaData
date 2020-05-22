@@ -90,7 +90,7 @@ setup(
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/data-dev/MetaData',
-    version='0.0.1.dev0',
+    version='0.0.1',
     zip_safe=False,
     entry_points={
         'console_scripts': ['metad = metad.__main__:main']
