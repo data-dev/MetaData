@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>metad.connectors.base module &mdash; MetaData 0.0.1 documentation</title>
+  <title>metad.connectors.base module &mdash; MetaData 0.0.1.dev0 documentation</title>
   
 
   
@@ -83,7 +83,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
@@ -91,8 +91,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#validating-json-files">Validating JSON Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#creating-metadata-objects">Creating Metadata Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#validating-json-files">Validating JSON Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
@@ -145,7 +145,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.0.1 (2020-05-22)</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -242,20 +245,21 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.connectors.base.BaseConnector.export" title="metad.connectors.base.BaseConnector.export"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export</span></code></a>(path_to_output)</p></td>
-<td><p>This exports the relational dataset to the output directory.</p></td>
+<td><p>Export the relational dataset.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#metad.connectors.base.BaseConnector.export_metadata" title="metad.connectors.base.BaseConnector.export_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_metadata</span></code></a>(path_to_json)</p></td>
-<td><p>This writes the metadata to a JSON file.</p></td>
+<td><p>Write the metadata to a JSON file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.connectors.base.BaseConnector.export_tables" title="metad.connectors.base.BaseConnector.export_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_tables</span></code></a>(path_to_output)</p></td>
-<td><p>This writes the tables to CSV files where the name of the file is the name of the table.</p></td>
+<td><p>Write the tables to CSV files.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="metad.connectors.base.BaseConnector.export">
 <code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param">path_to_output</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/base.html#BaseConnector.export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.base.BaseConnector.export" title="Permalink to this definition">¶</a></dt>
-<dd><p>This exports the relational dataset to the output directory. It
+<dd><p>Export the relational dataset.</p>
+<p>This exports the relational dataset to the output directory. It
 write the metadata to a JSON file and stores the tables as CSV files
 where the name of the file is the table name.</p>
 <dl class="field-list simple">
@@ -268,7 +272,7 @@ where the name of the file is the table name.</p>
 <dl class="method">
 <dt id="metad.connectors.base.BaseConnector.export_metadata">
 <code class="sig-name descname">export_metadata</code><span class="sig-paren">(</span><em class="sig-param">path_to_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/base.html#BaseConnector.export_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.base.BaseConnector.export_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>This writes the metadata to a JSON file.</p>
+<dd><p>Write the metadata to a JSON file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path_to_json</strong> (<em>str</em>) – The path to the output JSON.</p>
@@ -279,8 +283,7 @@ where the name of the file is the table name.</p>
 <dl class="method">
 <dt id="metad.connectors.base.BaseConnector.export_tables">
 <code class="sig-name descname">export_tables</code><span class="sig-paren">(</span><em class="sig-param">path_to_output</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/base.html#BaseConnector.export_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.base.BaseConnector.export_tables" title="Permalink to this definition">¶</a></dt>
-<dd><p>This writes the tables to CSV files where the name of the file
-is the name of the table.</p>
+<dd><p>Write the tables to CSV files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path_to_output</strong> (<em>str</em>) – The path to the output directory.</p>

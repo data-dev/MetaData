@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; MetaData 0.0.1 documentation</title>
+  <title>MetaData &mdash; MetaData 0.0.1.dev0 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="JSON Schema" href="schema.html" />
-    <link rel="prev" title="Overview" href="index.html" /> 
+    <link rel="prev" title="MetaData" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,7 +83,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-from-source">Install from source</a></li>
@@ -91,8 +91,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#quickstart">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#validating-json-files">Validating JSON Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-metadata-objects">Creating Metadata Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validating-json-files">Validating JSON Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
@@ -145,7 +145,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.0.1 (2020-05-22)</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -191,7 +194,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Overview</li>
+      <li>MetaData</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -218,11 +221,11 @@
 </p><a class="reference external image-reference" href="https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha"><img alt="Development Status" src="https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow" /></a>
 <a class="reference external image-reference" href="https://github.com/data-dev/MetaData/actions"><img alt="Github Actions Shield" src="https://img.shields.io/github/workflow/status/data-dev/MetaData/Run%20Tests" /></a>
 <a class="reference external image-reference" href="https://codecov.io/gh/data-dev/MetaData"><img alt="Coverage Status" src="https://codecov.io/gh/data-dev/MetaData/branch/master/graph/badge.svg" /></a>
-<div class="section" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p style="margin-bottom:1em;"></p><div class="section" id="metadata">
+<h1>MetaData<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h1>
 <p>This project aims to formally define a JSON schema which captures the structure of a relational database.</p>
 <ul class="simple">
-<li><p>Schema: <a class="reference external" href="https://data-dev.github.io/MetaData/schema.html">https://data-dev.github.io/MetaData/schema.html</a></p></li>
+<li><p>JSON Schema: <a class="reference external" href="https://data-dev.github.io/MetaData/schema.html">https://data-dev.github.io/MetaData/schema.html</a></p></li>
 <li><p>Documentation: <a class="reference external" href="https://data-dev.github.io/MetaData">https://data-dev.github.io/MetaData</a></p></li>
 <li><p>Homepage: <a class="reference external" href="https://github.com/data-dev/MetaData">https://github.com/data-dev/MetaData</a></p></li>
 </ul>
@@ -280,17 +283,6 @@ for more details about this process.</p>
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
 <p>In this short tutorial we will guide you through a series of steps that will help you
 getting started with <strong>MetaData</strong>.</p>
-<div class="section" id="validating-json-files">
-<h2>Validating JSON Files<a class="headerlink" href="#validating-json-files" title="Permalink to this headline">¶</a></h2>
-<p>The core functionality of this library is to validate JSON files. The following code will load
-the metadata file for the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> dataset and validate it.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metad</span> <span class="kn">import</span> <span class="n">MetaData</span>
-
-<span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;examples/hello_world/metadata.json&quot;</span><span class="p">)</span>
-<span class="n">metadata</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="creating-metadata-objects">
 <h2>Creating Metadata Objects<a class="headerlink" href="#creating-metadata-objects" title="Permalink to this headline">¶</a></h2>
 <p>You can also help create Metadata objects from scratch. The following code will create a
@@ -307,8 +299,21 @@ the metadata file for the <code class="docutils literal notranslate"><span class
         <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;data_type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">}</span>
     <span class="p">],</span>
 <span class="p">})</span>
+</pre></div>
+</div>
+<p>Then, to export this object to a JSON file, you can run the following:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>metadata.to_json(&quot;your_metadata.json&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="validating-json-files">
+<h2>Validating JSON Files<a class="headerlink" href="#validating-json-files" title="Permalink to this headline">¶</a></h2>
+<p>The core functionality of this library is to validate JSON files. The following code will load
+the metadata file for the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> dataset and validate it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metad</span> <span class="kn">import</span> <span class="n">MetaData</span>
 
-<span class="n">metadata</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;your_metadata.json&quot;</span><span class="p">)</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;examples/hello_world/metadata.json&quot;</span><span class="p">)</span>
+<span class="n">metadata</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -330,7 +335,7 @@ and features, please check the <a class="reference external" href="https://data-
         <a href="schema.html" class="btn btn-neutral float-right" title="JSON Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="MetaData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

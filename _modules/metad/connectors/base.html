@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>metad.connectors.base &mdash; MetaData 0.0.1 documentation</title>
+  <title>metad.connectors.base &mdash; MetaData 0.0.1.dev0 documentation</title>
   
 
   
@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-from-source">Install from source</a></li>
@@ -89,8 +89,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#quickstart">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#validating-json-files">Validating JSON Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#creating-metadata-objects">Creating Metadata Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#validating-json-files">Validating JSON Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#what-s-next">What’s next?</a></li>
@@ -143,7 +143,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id1">0.0.1 (2020-05-22)</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -218,7 +221,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">()</span>
 
 <div class="viewcode-block" id="BaseConnector.export"><a class="viewcode-back" href="../../../api/metad.connectors.base.html#metad.connectors.base.BaseConnector.export">[docs]</a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_to_output</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This exports the relational dataset to the output directory. It</span>
+        <span class="sd">&quot;&quot;&quot;Export the relational dataset.</span>
+
+<span class="sd">        This exports the relational dataset to the output directory. It</span>
 <span class="sd">        write the metadata to a JSON file and stores the tables as CSV files</span>
 <span class="sd">        where the name of the file is the table name.</span>
 
@@ -230,7 +235,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">export_tables</span><span class="p">(</span><span class="n">path_to_output</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="BaseConnector.export_metadata"><a class="viewcode-back" href="../../../api/metad.connectors.base.html#metad.connectors.base.BaseConnector.export_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">export_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_to_json</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This writes the metadata to a JSON file.</span>
+        <span class="sd">&quot;&quot;&quot;Write the metadata to a JSON file.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            path_to_json (str): The path to the output JSON.</span>
@@ -238,8 +243,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="BaseConnector.export_tables"><a class="viewcode-back" href="../../../api/metad.connectors.base.html#metad.connectors.base.BaseConnector.export_tables">[docs]</a>    <span class="k">def</span> <span class="nf">export_tables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_to_output</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This writes the tables to CSV files where the name of the file</span>
-<span class="sd">        is the name of the table.</span>
+        <span class="sd">&quot;&quot;&quot;Write the tables to CSV files.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            path_to_output (str): The path to the output directory.</span>

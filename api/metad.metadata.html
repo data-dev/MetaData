@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>metad.metadata module &mdash; MetaData 0.0.1 documentation</title>
+  <title>metad.metadata module &mdash; MetaData 0.0.1.dev0 documentation</title>
   
 
   
@@ -83,7 +83,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
@@ -91,8 +91,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#validating-json-files">Validating JSON Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#creating-metadata-objects">Creating Metadata Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#validating-json-files">Validating JSON Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
@@ -145,7 +145,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.0.1 (2020-05-22)</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -224,7 +227,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.metadata.MetaData" title="metad.metadata.MetaData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaData</span></code></a>()</p></td>
-<td><p></p></td>
+<td><p>Read, write, and validate metadata.</p></td>
 </tr>
 </tbody>
 </table>
@@ -244,6 +247,11 @@
 <dt id="metad.metadata.MetaData">
 <em class="property">class </em><code class="sig-prename descclassname">metad.metadata.</code><code class="sig-name descname">MetaData</code><a class="reference internal" href="../_modules/metad/metadata.html#MetaData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.metadata.MetaData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Read, write, and validate metadata.</p>
+<p>The MetaData object provides methods to help read, write, and validate
+metadata. It uses the JSON schema, which can be found in <cite>schema.json</cite>,
+to validate the structure of the metadata and applies additional logic
+checks internally.</p>
 <p><strong>Methods</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -252,19 +260,19 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.metadata.MetaData.add_constraint" title="metad.metadata.MetaData.add_constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_constraint</span></code></a>(constraint)</p></td>
-<td><p>This adds the constraint object to the metadata.</p></td>
+<td><p>Add the constraint object to the metadata.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#metad.metadata.MetaData.add_field" title="metad.metadata.MetaData.add_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_field</span></code></a>(table_name, field)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.metadata.MetaData.add_foreign_key" title="metad.metadata.MetaData.add_foreign_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_foreign_key</span></code></a>(foreign_key)</p></td>
-<td><p>This adds the foreign key object to the metadata.</p></td>
+<td><p>Add the foreign key object to the metadata.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#metad.metadata.MetaData.add_table" title="metad.metadata.MetaData.add_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_table</span></code></a>(table)</p></td>
-<td><p>This adds the table object to the metadata.</p></td>
+<td><p>Add the table object to the metadata.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.metadata.MetaData.from_json" title="metad.metadata.MetaData.from_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_json</span></code></a>(path_to_json)</p></td>
-<td><p>This loads a MetaData object from a JSON file.</p></td>
+<td><p>Load a MetaData object from a JSON file.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#metad.metadata.MetaData.get_foreign_keys" title="metad.metadata.MetaData.get_foreign_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_foreign_keys</span></code></a>([table_name])</p></td>
 <td><p></p></td>
@@ -288,15 +296,15 @@
 <td><p>Export the MetaData object to a JSON file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.metadata.MetaData.validate" title="metad.metadata.MetaData.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a>()</p></td>
-<td><p>This validates the metadata against the JSON schema.</p></td>
+<td><p>Validate the contents of this metadata object.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="metad.metadata.MetaData.add_constraint">
 <code class="sig-name descname">add_constraint</code><span class="sig-paren">(</span><em class="sig-param">constraint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.add_constraint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.metadata.MetaData.add_constraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>This adds the constraint object to the metadata. constraint table object must
-conform the the JSON schema specification.</p>
+<dd><p>Add the constraint object to the metadata.</p>
+<p>The constraint table object must conform the the JSON schema specification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>constraint</strong> (<em>dict</em>) – A dictionary representing the constraint relationship.</p>
@@ -312,8 +320,8 @@ conform the the JSON schema specification.</p>
 <dl class="method">
 <dt id="metad.metadata.MetaData.add_foreign_key">
 <code class="sig-name descname">add_foreign_key</code><span class="sig-paren">(</span><em class="sig-param">foreign_key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.add_foreign_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.metadata.MetaData.add_foreign_key" title="Permalink to this definition">¶</a></dt>
-<dd><p>This adds the foreign key object to the metadata. The foreign key object must
-conform the the JSON schema specification.</p>
+<dd><p>Add the foreign key object to the metadata.</p>
+<p>The foreign key object must conform the the JSON schema specification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>foreign_key</strong> (<em>dict</em>) – A dictionary representing the foreign key relationship.</p>
@@ -324,8 +332,8 @@ conform the the JSON schema specification.</p>
 <dl class="method">
 <dt id="metad.metadata.MetaData.add_table">
 <code class="sig-name descname">add_table</code><span class="sig-paren">(</span><em class="sig-param">table</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.add_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.metadata.MetaData.add_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>This adds the table object to the metadata. The table object must
-conform the the JSON schema specification.</p>
+<dd><p>Add the table object to the metadata.</p>
+<p>The table object must conform the the JSON schema specification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>table</strong> (<em>dict</em>) – A dictionary representing the table.</p>
@@ -336,7 +344,7 @@ conform the the JSON schema specification.</p>
 <dl class="method">
 <dt id="metad.metadata.MetaData.from_json">
 <em class="property">static </em><code class="sig-name descname">from_json</code><span class="sig-paren">(</span><em class="sig-param">path_to_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.metadata.MetaData.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>This loads a MetaData object from a JSON file.</p>
+<dd><p>Load a MetaData object from a JSON file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path_to_json</strong> (<em>str</em>) – The path to the JSON file.</p>
@@ -398,9 +406,10 @@ conform the the JSON schema specification.</p>
 <dl class="method">
 <dt id="metad.metadata.MetaData.validate">
 <code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/metadata.html#MetaData.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.metadata.MetaData.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>This validates the metadata against the JSON schema. It also
-performs additional checks (i.e. that table/field names are unique)
-to ensure that the metadata is valid.</p>
+<dd><p>Validate the contents of this metadata object.</p>
+<p>This validates the metadata against the JSON schema. It also performs
+additional logic checks (i.e. that table/field names are unique) to
+ensure that the metadata is valid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><strong>AssertionError</strong> – If the metadata is not valid.</p>

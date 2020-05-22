@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>metad.metadata &mdash; MetaData 0.0.1 documentation</title>
+  <title>metad.metadata &mdash; MetaData 0.0.1.dev0 documentation</title>
   
 
   
@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../readme.html#install-from-source">Install from source</a></li>
@@ -89,8 +89,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../readme.html#quickstart">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../readme.html#validating-json-files">Validating JSON Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../readme.html#creating-metadata-objects">Creating Metadata Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#validating-json-files">Validating JSON Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../readme.html#what-s-next">What’s next?</a></li>
@@ -143,7 +143,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id1">0.0.1 (2020-05-22)</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -220,12 +223,15 @@
 
 
 <div class="viewcode-block" id="MetaData"><a class="viewcode-back" href="../../api/metad.metadata.html#metad.MetaData">[docs]</a><span class="k">class</span> <span class="nc">MetaData</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Read, write, and validate metadata.</span>
+
+<span class="sd">    The MetaData object provides methods to help read, write, and validate</span>
+<span class="sd">    metadata. It uses the JSON schema, which can be found in `schema.json`,</span>
+<span class="sd">    to validate the structure of the metadata and applies additional logic</span>
+<span class="sd">    checks internally.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The MetaData object provides methods to help create, save, and load</span>
-<span class="sd">        metadata objects.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;tables&quot;</span><span class="p">:</span> <span class="p">[],</span>
             <span class="s2">&quot;foreign_keys&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -269,7 +275,7 @@
 
 <div class="viewcode-block" id="MetaData.from_json"><a class="viewcode-back" href="../../api/metad.metadata.html#metad.MetaData.from_json">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="n">path_to_json</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This loads a MetaData object from a JSON file.</span>
+        <span class="sd">&quot;&quot;&quot;Load a MetaData object from a JSON file.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            path_to_json (str): The path to the JSON file.</span>
@@ -283,9 +289,11 @@
         <span class="k">return</span> <span class="n">metadata</span></div>
 
 <div class="viewcode-block" id="MetaData.validate"><a class="viewcode-back" href="../../api/metad.metadata.html#metad.MetaData.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This validates the metadata against the JSON schema. It also</span>
-<span class="sd">        performs additional checks (i.e. that table/field names are unique)</span>
-<span class="sd">        to ensure that the metadata is valid.</span>
+        <span class="sd">&quot;&quot;&quot;Validate the contents of this metadata object.</span>
+
+<span class="sd">        This validates the metadata against the JSON schema. It also performs</span>
+<span class="sd">        additional logic checks (i.e. that table/field names are unique) to</span>
+<span class="sd">        ensure that the metadata is valid.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            AssertionError: If the metadata is not valid.</span>
@@ -322,8 +330,9 @@
                     <span class="k">assert</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="s2">&quot;table&quot;</span><span class="p">],</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;field&quot;</span><span class="p">])</span> <span class="ow">in</span> <span class="n">field_names</span><span class="p">,</span> <span class="n">field</span></div>
 
 <div class="viewcode-block" id="MetaData.add_table"><a class="viewcode-back" href="../../api/metad.metadata.html#metad.MetaData.add_table">[docs]</a>    <span class="k">def</span> <span class="nf">add_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This adds the table object to the metadata. The table object must</span>
-<span class="sd">        conform the the JSON schema specification.</span>
+        <span class="sd">&quot;&quot;&quot;Add the table object to the metadata.</span>
+
+<span class="sd">        The table object must conform the the JSON schema specification.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            table (dict): A dictionary representing the table.</span>
@@ -332,8 +341,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="MetaData.add_foreign_key"><a class="viewcode-back" href="../../api/metad.metadata.html#metad.MetaData.add_foreign_key">[docs]</a>    <span class="k">def</span> <span class="nf">add_foreign_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foreign_key</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This adds the foreign key object to the metadata. The foreign key object must</span>
-<span class="sd">        conform the the JSON schema specification.</span>
+        <span class="sd">&quot;&quot;&quot;Add the foreign key object to the metadata.</span>
+
+<span class="sd">        The foreign key object must conform the the JSON schema specification.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            foreign_key (dict): A dictionary representing the foreign key relationship.</span>
@@ -344,8 +354,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="MetaData.add_constraint"><a class="viewcode-back" href="../../api/metad.metadata.html#metad.MetaData.add_constraint">[docs]</a>    <span class="k">def</span> <span class="nf">add_constraint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constraint</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This adds the constraint object to the metadata. constraint table object must</span>
-<span class="sd">        conform the the JSON schema specification.</span>
+        <span class="sd">&quot;&quot;&quot;Add the constraint object to the metadata.</span>
+
+<span class="sd">        The constraint table object must conform the the JSON schema specification.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            constraint (dict): A dictionary representing the constraint relationship.</span>

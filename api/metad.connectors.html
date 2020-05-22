@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>metad.connectors package &mdash; MetaData 0.0.1 documentation</title>
+  <title>metad.connectors package &mdash; MetaData 0.0.1.dev0 documentation</title>
   
 
   
@@ -83,7 +83,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
@@ -91,8 +91,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#validating-json-files">Validating JSON Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#creating-metadata-objects">Creating Metadata Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#validating-json-files">Validating JSON Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
@@ -145,7 +145,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.0.1 (2020-05-22)</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -238,10 +241,10 @@ data sources such as MySQL.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.connectors.DataFrameConnector" title="metad.connectors.DataFrameConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrameConnector</span></code></a>(tables)</p></td>
-<td><p></p></td>
+<td><p>Import data from pandas DataFrames.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#metad.connectors.MySQLConnector" title="metad.connectors.MySQLConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MySQLConnector</span></code></a>(host, port, user, password, …)</p></td>
-<td><p></p></td>
+<td><p>Import data from MySQL instances.</p></td>
 </tr>
 </tbody>
 </table>
@@ -249,6 +252,10 @@ data sources such as MySQL.</p>
 <dt id="metad.connectors.DataFrameConnector">
 <em class="property">class </em><code class="sig-prename descclassname">metad.connectors.</code><code class="sig-name descname">DataFrameConnector</code><span class="sig-paren">(</span><em class="sig-param">tables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/dataframe.html#DataFrameConnector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.DataFrameConnector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="metad.connectors.base.html#metad.connectors.base.BaseConnector" title="metad.connectors.base.BaseConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">metad.connectors.base.BaseConnector</span></code></a></p>
+<p>Import data from pandas DataFrames.</p>
+<p>The DataFrameConnector allows you to import data from pandas
+DataFrames. It automatically populates the tables and fields; it also
+infers the data types from the data.</p>
 <p><strong>Methods</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -257,17 +264,17 @@ data sources such as MySQL.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.connectors.DataFrameConnector.export_metadata" title="metad.connectors.DataFrameConnector.export_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_metadata</span></code></a>(path_to_json)</p></td>
-<td><p>This writes the metadata to a JSON file.</p></td>
+<td><p>Write the metadata to a JSON file.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#metad.connectors.DataFrameConnector.export_tables" title="metad.connectors.DataFrameConnector.export_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_tables</span></code></a>(path_to_output)</p></td>
-<td><p>This writes the tables to CSV files where the name of the file is the name of the table.</p></td>
+<td><p>Write the tables to CSV files.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="metad.connectors.DataFrameConnector.export_metadata">
 <code class="sig-name descname">export_metadata</code><span class="sig-paren">(</span><em class="sig-param">path_to_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/dataframe.html#DataFrameConnector.export_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.DataFrameConnector.export_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>This writes the metadata to a JSON file.</p>
+<dd><p>Write the metadata to a JSON file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path_to_json</strong> (<em>str</em>) – The path to the output JSON.</p>
@@ -278,8 +285,7 @@ data sources such as MySQL.</p>
 <dl class="method">
 <dt id="metad.connectors.DataFrameConnector.export_tables">
 <code class="sig-name descname">export_tables</code><span class="sig-paren">(</span><em class="sig-param">path_to_output</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/dataframe.html#DataFrameConnector.export_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.DataFrameConnector.export_tables" title="Permalink to this definition">¶</a></dt>
-<dd><p>This writes the tables to CSV files where the name of the file
-is the name of the table.</p>
+<dd><p>Write the tables to CSV files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path_to_output</strong> (<em>str</em>) – The path to the output directory.</p>
@@ -293,6 +299,10 @@ is the name of the table.</p>
 <dt id="metad.connectors.MySQLConnector">
 <em class="property">class </em><code class="sig-prename descclassname">metad.connectors.</code><code class="sig-name descname">MySQLConnector</code><span class="sig-paren">(</span><em class="sig-param">host</em>, <em class="sig-param">port</em>, <em class="sig-param">user</em>, <em class="sig-param">password</em>, <em class="sig-param">database</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/mysql.html#MySQLConnector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.MySQLConnector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="metad.connectors.base.html#metad.connectors.base.BaseConnector" title="metad.connectors.base.BaseConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">metad.connectors.base.BaseConnector</span></code></a></p>
+<p>Import data from MySQL instances.</p>
+<p>The MySQLConnector allows you to import data from a MySQL instance
+by translating the data types and exporting the primary / foreign key
+constraints from the schema table.</p>
 <p><strong>Methods</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -301,17 +311,17 @@ is the name of the table.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#metad.connectors.MySQLConnector.export_metadata" title="metad.connectors.MySQLConnector.export_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_metadata</span></code></a>(path_to_json)</p></td>
-<td><p>This writes the metadata to a JSON file.</p></td>
+<td><p>Write the metadata to a JSON file.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#metad.connectors.MySQLConnector.export_tables" title="metad.connectors.MySQLConnector.export_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_tables</span></code></a>(path_to_output)</p></td>
-<td><p>This writes the tables to CSV files where the name of the file is the name of the table.</p></td>
+<td><p>Write the tables to CSV files.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="metad.connectors.MySQLConnector.export_metadata">
 <code class="sig-name descname">export_metadata</code><span class="sig-paren">(</span><em class="sig-param">path_to_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/mysql.html#MySQLConnector.export_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.MySQLConnector.export_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>This writes the metadata to a JSON file.</p>
+<dd><p>Write the metadata to a JSON file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path_to_json</strong> (<em>str</em>) – The path to the output JSON.</p>
@@ -322,8 +332,7 @@ is the name of the table.</p>
 <dl class="method">
 <dt id="metad.connectors.MySQLConnector.export_tables">
 <code class="sig-name descname">export_tables</code><span class="sig-paren">(</span><em class="sig-param">path_to_output</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/metad/connectors/mysql.html#MySQLConnector.export_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metad.connectors.MySQLConnector.export_tables" title="Permalink to this definition">¶</a></dt>
-<dd><p>This writes the tables to CSV files where the name of the file
-is the name of the table.</p>
+<dd><p>Write the tables to CSV files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path_to_output</strong> (<em>str</em>) – The path to the output directory.</p>

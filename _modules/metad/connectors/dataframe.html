@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>metad.connectors.dataframe &mdash; MetaData 0.0.1 documentation</title>
+  <title>metad.connectors.dataframe &mdash; MetaData 0.0.1.dev0 documentation</title>
   
 
   
@@ -81,7 +81,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-from-source">Install from source</a></li>
@@ -89,8 +89,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#quickstart">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#validating-json-files">Validating JSON Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#creating-metadata-objects">Creating Metadata Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#validating-json-files">Validating JSON Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#what-s-next">What’s next?</a></li>
@@ -143,7 +143,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id1">0.0.1 (2020-05-22)</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -210,10 +213,16 @@
 <span></span><span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseConnector</span>
+<span class="kn">from</span> <span class="nn">metad.connectors.base</span> <span class="kn">import</span> <span class="n">BaseConnector</span>
 
 
 <div class="viewcode-block" id="DataFrameConnector"><a class="viewcode-back" href="../../../api/metad.connectors.dataframe.html#metad.connectors.DataFrameConnector">[docs]</a><span class="k">class</span> <span class="nc">DataFrameConnector</span><span class="p">(</span><span class="n">BaseConnector</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Import data from pandas DataFrames.</span>
+
+<span class="sd">    The DataFrameConnector allows you to import data from pandas</span>
+<span class="sd">    DataFrames. It automatically populates the tables and fields; it also</span>
+<span class="sd">    infers the data types from the data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_FIELD_TEMPLATES</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;i&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -236,10 +245,7 @@
     <span class="p">}</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The DataFrameConnector allows you to import data from pandas</span>
-<span class="sd">        DataFrames. It automatically populates the tables and fields; it also</span>
-<span class="sd">        infers the data types from the data. Note that it does not attempt</span>
-<span class="sd">        to detect primary/foreign key relationships.</span>
+        <span class="sd">&quot;&quot;&quot;Create a new DataFrameConnector.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            tables (dict): A dictionary mapping from table names to pandas</span>
