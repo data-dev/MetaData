@@ -343,41 +343,11 @@
         <span class="n">fields</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">primary_key</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-            <span class="n">data_type</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;int&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;tinyint&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;smallint&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="s2">&quot;categorical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;bit&quot;</span><span class="p">:</span> <span class="s2">&quot;categorical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;binary&quot;</span><span class="p">:</span> <span class="s2">&quot;categorical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;varchar&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;tinytext&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;longtext&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;mediumtext&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;char&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;float&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;double&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;bigint&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;mediumint&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;decimal&quot;</span><span class="p">:</span> <span class="s2">&quot;numerical&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;blob&quot;</span><span class="p">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;mediumblob&quot;</span><span class="p">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;longblob&quot;</span><span class="p">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;set&quot;</span><span class="p">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="s2">&quot;other&quot;</span>
-            <span class="p">}[</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;DATA_TYPE&quot;</span><span class="p">]]</span>
+            <span class="n">data_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_dtype</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;DATA_TYPE&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;COLUMN_KEY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;PRI&quot;</span><span class="p">:</span>
                 <span class="n">primary_key</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;COLUMN_NAME&quot;</span><span class="p">])</span>
-            <span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;COLUMN_NAME&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;data_type&quot;</span><span class="p">:</span> <span class="n">data_type</span>
-            <span class="p">})</span>
+            <span class="n">data_type</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;COLUMN_NAME&quot;</span><span class="p">]</span>
+            <span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_type</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">primary_key</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">primary_key</span> <span class="o">=</span> <span class="n">primary_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">table</span> <span class="o">=</span> <span class="p">{</span>
@@ -392,6 +362,35 @@
             <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">table_name</span><span class="p">,</span>
             <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="n">primary_key</span><span class="p">,</span>
             <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="n">fields</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">_get_dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mysql_dtype</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">mysql_dtype</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;tinyint&quot;</span><span class="p">,</span> <span class="s2">&quot;smallint&quot;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="s1">&#39;numerical&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;data_subtype&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="n">mysql_dtype</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;bit&quot;</span><span class="p">,</span> <span class="s2">&quot;binary&quot;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;data_subtype&#39;</span><span class="p">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="n">mysql_dtype</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;tinytext&quot;</span><span class="p">,</span> <span class="s2">&quot;longtext&quot;</span><span class="p">,</span>
+                               <span class="s2">&quot;mediumtext&quot;</span><span class="p">,</span> <span class="s2">&quot;varchar&quot;</span><span class="p">,</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span> <span class="s2">&quot;enum&quot;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="n">mysql_dtype</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">if</span> <span class="n">mysql_dtype</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span> <span class="s2">&quot;bigint&quot;</span><span class="p">,</span> <span class="s2">&quot;mediumint&quot;</span><span class="p">,</span> <span class="s2">&quot;decimal&quot;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="s1">&#39;numerical&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;data_subtype&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="s1">&#39;other&#39;</span>
         <span class="p">}</span></div>
 </pre></div>
 
