@@ -1,5 +1,6 @@
 import copy
 import os
+import uuid
 
 from metad.connectors.base import BaseConnector
 
@@ -58,6 +59,7 @@ class DataFrameConnector(BaseConnector):
         table_metadata = []
         for table_name, dataframe in self.tables.items():
             table_metadata.append({
+                "id": str(uuid.uuid1()),
                 "name": table_name,
                 "fields": self._analyze_fields(dataframe)
             })

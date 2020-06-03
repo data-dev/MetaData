@@ -8,152 +8,184 @@
       ],
       "fields": [
         {
-          "name": "GameId",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "GameId"
         },
         {
-          "name": "TeamId",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "TeamId"
         },
         {
-          "name": "PlayerId",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "PlayerId"
         },
         {
-          "name": "Minutes",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Minutes"
         },
         {
-          "name": "FieldGoalsMade",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "FieldGoalsMade"
         },
         {
-          "name": "FieldGoalAttempts",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "FieldGoalAttempts"
         },
         {
-          "name": "3PointsMade",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "3PointsMade"
         },
         {
-          "name": "3PointAttempts",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "3PointAttempts"
         },
         {
-          "name": "FreeThrowsMade",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "FreeThrowsMade"
         },
         {
-          "name": "FreeThrowAttempts",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "FreeThrowAttempts"
         },
         {
-          "name": "PlusMinus",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "PlusMinus"
         },
         {
-          "name": "OffensiveRebounds",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "OffensiveRebounds"
         },
         {
-          "name": "DefensiveRebounds",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "DefensiveRebounds"
         },
         {
-          "name": "TotalRebounds",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "TotalRebounds"
         },
         {
-          "name": "Assists",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Assists"
         },
         {
-          "name": "PersonalFouls",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "PersonalFouls"
         },
         {
-          "name": "Steals",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Steals"
         },
         {
-          "name": "Turnovers",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Turnovers"
         },
         {
-          "name": "BlockedShots",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "BlockedShots"
         },
         {
-          "name": "BlocksAgainst",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "BlocksAgainst"
         },
         {
-          "name": "Points",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Points"
         },
         {
-          "name": "Starter",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Starter"
         }
-      ]
+      ],
+      "id": "Actions"
     },
     {
       "name": "Game",
       "primary_key": "GameId",
       "fields": [
         {
-          "name": "GameId",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "GameId"
         },
         {
-          "name": "Team1Id",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Team1Id"
         },
         {
-          "name": "Team2Id",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "Team2Id"
         },
         {
-          "name": "ResultOfTeam1",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "ResultOfTeam1"
         },
         {
-          "name": "URL",
-          "data_type": "text"
+          "data_type": "categorical",
+          "name": "URL"
         },
         {
-          "name": "Date",
-          "data_type": "datetime"
+          "data_type": "datetime",
+          "name": "Date"
         }
-      ]
+      ],
+      "id": "Game"
     },
     {
       "name": "Player",
       "primary_key": "PlayerId",
       "fields": [
         {
-          "name": "PlayerId",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "PlayerId"
         },
         {
-          "name": "PlayerName",
-          "data_type": "text"
+          "data_type": "categorical",
+          "name": "PlayerName"
         }
-      ]
+      ],
+      "id": "Player"
     },
     {
       "name": "Team",
       "primary_key": "TeamId",
       "fields": [
         {
-          "name": "TeamId",
-          "data_type": "numerical"
+          "data_type": "numerical",
+          "data_subtype": "integer",
+          "name": "TeamId"
         },
         {
-          "name": "TeamName",
-          "data_type": "text"
+          "data_type": "categorical",
+          "name": "TeamName"
         }
-      ]
+      ],
+      "id": "Team"
     }
   ],
   "foreign_keys": [

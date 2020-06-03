@@ -1,6 +1,7 @@
 {
   "tables": [
     {
+      "id": "game",
       "name": "game",
       "primary_key": "game_id",
       "fields": [
@@ -139,6 +140,7 @@
       ]
     },
     {
+      "id": "opening",
       "name": "opening",
       "primary_key": "opening_id",
       "fields": [
