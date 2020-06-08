@@ -69,7 +69,9 @@ class MySQLConnector(BaseConnector):
     def _tables(self, cursor):
         tables = []
         for table_name in self._table_names(cursor):
-            tables.append(self._table_metadata(cursor, table_name))
+            table_metadata = self._table_metadata(cursor, table_name)
+            table_metadata["id"] = table_name  # table names are unique
+            tables.append(table_metadata)
         return tables
 
     def _foreign_keys(self, cursor):
@@ -131,41 +133,11 @@ class MySQLConnector(BaseConnector):
         fields = []
         primary_key = []
         for row in cursor.fetchall():
-            data_type = {
-                "int": "numerical",
-                "tinyint": "numerical",
-                "smallint": "numerical",
-                "enum": "categorical",
-                "bit": "categorical",
-                "binary": "categorical",
-                "varchar": "text",
-                "text": "text",
-                "tinytext": "text",
-                "longtext": "text",
-                "mediumtext": "text",
-                "char": "text",
-                "datetime": "datetime",
-                "year": "datetime",
-                "timestamp": "datetime",
-                "time": "datetime",
-                "float": "numerical",
-                "double": "numerical",
-                "bigint": "numerical",
-                "mediumint": "numerical",
-                "decimal": "numerical",
-                "date": "datetime",
-                "blob": "other",
-                "mediumblob": "other",
-                "longblob": "other",
-                "set": "other",
-                "geometry": "other"
-            }[row["DATA_TYPE"]]
+            data_type = self._get_dtype(row["DATA_TYPE"]).copy()
             if row["COLUMN_KEY"] == "PRI":
                 primary_key.append(row["COLUMN_NAME"])
-            fields.append({
-                "name": row["COLUMN_NAME"],
-                "data_type": data_type
-            })
+            data_type["name"] = row["COLUMN_NAME"]
+            fields.append(data_type)
         if len(primary_key) == 1:
             primary_key = primary_key[0]
         table = {
@@ -180,4 +152,33 @@ class MySQLConnector(BaseConnector):
             "name": table_name,
             "primary_key": primary_key,
             "fields": fields
+        }
+
+    def _get_dtype(self, mysql_dtype):
+        if mysql_dtype in set(["int", "tinyint", "smallint"]):
+            return {
+                'data_type': 'numerical',
+                'data_subtype': 'integer',
+            }
+        if mysql_dtype in set(["bit", "binary"]):
+            return {
+                'data_type': 'categorical',
+                'data_subtype': 'boolean',
+            }
+        if mysql_dtype in set(["text", "tinytext", "longtext",
+                               "mediumtext", "varchar", "char", "enum"]):
+            return {
+                'data_type': 'categorical',
+            }
+        if mysql_dtype in set(["datetime", "year", "timestamp", "time", "date"]):
+            return {
+                'data_type': 'datetime',
+            }
+        if mysql_dtype in set(["float", "double", "bigint", "mediumint", "decimal"]):
+            return {
+                'data_type': 'numerical',
+                'data_subtype': 'float',
+            }
+        return {
+            'data_type': 'other'
         }

@@ -4,6 +4,7 @@
 </p>
 
 [![Development Status](https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow)](https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha)
+[![PyPI Shield](https://img.shields.io/pypi/v/metad.svg)](https://pypi.python.org/pypi/metad)
 [![Github Actions Shield](https://img.shields.io/github/workflow/status/data-dev/MetaData/Run%20Tests)](https://github.com/data-dev/MetaData/actions)
 [![Coverage Status](https://codecov.io/gh/data-dev/MetaData/branch/master/graph/badge.svg)](https://codecov.io/gh/data-dev/MetaData)
 
@@ -16,6 +17,7 @@ This project aims to formally define a JSON schema which captures the structure 
 - JSON Schema: https://data-dev.github.io/MetaData/schema.html
 - Documentation: https://data-dev.github.io/MetaData
 - Homepage: https://github.com/data-dev/MetaData
+- License: [MIT](LICENSE)
 
 # Install
 
@@ -27,53 +29,19 @@ Also, although it is not strictly required, the usage of a [virtualenv](https://
 is highly recommended in order to avoid interfering with other software installed in the system
 in which **MetaData** is run.
 
-These are the minimum commands needed to create a virtualenv using python3.6 for **MetaData**:
+## Install with pip
 
-```bash
-pip install virtualenv
-virtualenv -p $(which python3.6) MetaData-venv
-```
-
-Afterwards, you have to execute this command to activate the virtualenv:
-
-```bash
-source MetaData-venv/bin/activate
-```
-
-Remember to execute it every time you start a new console to work on **MetaData**!
-
-<!-- Uncomment this section after releasing the package to PyPI for installation instructions
-## Install from PyPI
-
-After creating the virtualenv and activating it, we recommend using
-[pip](https://pip.pypa.io/en/stable/) in order to install **MetaData**:
+The easiest and recommended way to install **MetaData** is using [pip](
+https://pip.pypa.io/en/stable/):
 
 ```bash
 pip install metad
 ```
 
-This will pull and install the latest stable release from [PyPI](https://pypi.org/).
--->
+This will pull and install the latest stable release from [PyPi](https://pypi.org/).
 
-## Install from source
-
-With your virtualenv activated, you can clone the repository and install it from
-source by running `make install` on the `stable` branch:
-
-```bash
-git clone git@github.com:data-dev/MetaData.git
-cd MetaData
-git checkout stable
-make install
-```
-
-## Install for Development
-
-If you want to contribute to the project, a few more steps are required to make the project ready
-for development.
-
-Please head to the [Contributing Guide](https://data-dev.github.io/MetaData/contributing.html#get-started)
-for more details about this process.
+If you want to install from source or contribute to the project please read the
+[Contributing Guide](https://hdi-project.github.io/MetaData/contributing.html#get-started).
 
 # Quickstart
 
@@ -82,15 +50,16 @@ getting started with **MetaData**.
 
 ## Creating Metadata Objects
 
-You can also help create Metadata objects from scratch. The following code will create a 
+You can also help create Metadata objects from scratch. The following code will create a
 `MetaData` object, add a table, and then save it to a JSON file.
 
-```python
+```python3
 from metad import MetaData
 
 metadata = MetaData()
 
 metadata.add_table({
+    "id": "users",
     "name": "users",
     "primary_key": "id",
     "fields": [
@@ -102,24 +71,23 @@ metadata.add_table({
 
 Then, to export this object to a JSON file, you can run the following:
 
-```
+```python3
 metadata.to_json("your_metadata.json")
 ```
 
 ## Validating JSON Files
 
-The core functionality of this library is to validate JSON files. The following code will load 
+The core functionality of this library is to validate JSON files. The following code will load
 the metadata file for the `hello_world` dataset and validate it.
 
-```python
+```python3
 from metad import MetaData
 
-metadata = MetaData.from_json("examples/hello_world/metadata.json")
+metadata = MetaData.from_json("your_metadata.json")
 metadata.validate()
 ```
 
 # What's next?
 
-For more details about **MetaData** and all its possibilities
-and features, please check the [documentation site](
-https://data-dev.github.io/MetaData/).
+For more details about **MetaData** and all its possibilities and features, please check the
+[documentation site](https://data-dev.github.io/MetaData/).
