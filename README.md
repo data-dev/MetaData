@@ -31,7 +31,7 @@ in which **MetaData** is run.
 
 ## Install with pip
 
-The easiest and recommended way to install **DataTracer** is using [pip](
+The easiest and recommended way to install **MetaData** is using [pip](
 https://pip.pypa.io/en/stable/):
 
 ```bash
@@ -41,7 +41,7 @@ pip install metad
 This will pull and install the latest stable release from [PyPi](https://pypi.org/).
 
 If you want to install from source or contribute to the project please read the
-[Contributing Guide](https://hdi-project.github.io/DataTracer/contributing.html#get-started).
+[Contributing Guide](https://hdi-project.github.io/MetaData/contributing.html#get-started).
 
 # Quickstart
 
