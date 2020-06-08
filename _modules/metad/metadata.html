@@ -301,12 +301,12 @@
         <span class="n">validate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
         <span class="c1"># Assert that field names are unique</span>
-        <span class="n">table_names</span><span class="p">,</span> <span class="n">field_names</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="n">table_ids</span><span class="p">,</span> <span class="n">field_names</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;tables&quot;</span><span class="p">]:</span>
-            <span class="n">table_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+            <span class="n">table_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
             <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table</span><span class="p">[</span><span class="s2">&quot;fields&quot;</span><span class="p">]:</span>
-                <span class="n">field_names</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]))</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">table_names</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">table_names</span><span class="p">))</span>
+                <span class="n">field_names</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]))</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">table_ids</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">table_ids</span><span class="p">))</span>
         <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">field_names</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">field_names</span><span class="p">))</span>
 
         <span class="c1"># Assert that the foreign key fields exist</span>
