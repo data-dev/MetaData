@@ -85,8 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-source">Install from source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#install-for-development">Install for Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-with-pip">Install with pip</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
@@ -218,6 +217,7 @@
 <img width=15% src="https://dai.lids.mit.edu/wp-content/uploads/2018/06/Logo_DAI_highres.png" alt=“DAI-Lab” />
 <i>An open source project from Data to AI Lab at MIT.</i>
 </p><a class="reference external image-reference" href="https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha"><img alt="Development Status" src="https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/metad"><img alt="PyPI Shield" src="https://img.shields.io/pypi/v/metad.svg" /></a>
 <a class="reference external image-reference" href="https://github.com/data-dev/MetaData/actions"><img alt="Github Actions Shield" src="https://img.shields.io/github/workflow/status/data-dev/MetaData/Run%20Tests" /></a>
 <a class="reference external image-reference" href="https://codecov.io/gh/data-dev/MetaData"><img alt="Coverage Status" src="https://codecov.io/gh/data-dev/MetaData/branch/master/graph/badge.svg" /></a>
 <p style="margin-bottom:1em;"></p><div class="section" id="metadata">
@@ -227,6 +227,7 @@
 <li><p>JSON Schema: <a class="reference external" href="https://data-dev.github.io/MetaData/schema.html">https://data-dev.github.io/MetaData/schema.html</a></p></li>
 <li><p>Documentation: <a class="reference external" href="https://data-dev.github.io/MetaData">https://data-dev.github.io/MetaData</a></p></li>
 <li><p>Homepage: <a class="reference external" href="https://github.com/data-dev/MetaData">https://github.com/data-dev/MetaData</a></p></li>
+<li><p>License: <a class="reference external" href="LICENSE">MIT</a></p></li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -237,45 +238,16 @@
 <p>Also, although it is not strictly required, the usage of a <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>
 is highly recommended in order to avoid interfering with other software installed in the system
 in which <strong>MetaData</strong> is run.</p>
-<p>These are the minimum commands needed to create a virtualenv using python3.6 for <strong>MetaData</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install virtualenv
-virtualenv -p <span class="k">$(</span>which python3.6<span class="k">)</span> MetaData-venv
+</div>
+<div class="section" id="install-with-pip">
+<h2>Install with pip<a class="headerlink" href="#install-with-pip" title="Permalink to this headline">¶</a></h2>
+<p>The easiest and recommended way to install <strong>DataTracer</strong> is using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install metad
 </pre></div>
 </div>
-<p>Afterwards, you have to execute this command to activate the virtualenv:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> MetaData-venv/bin/activate
-</pre></div>
-</div>
-<p>Remember to execute it every time you start a new console to work on <strong>MetaData</strong>!</p>
-<!-- Uncomment this section after releasing the package to PyPI for installation instructions
-## Install from PyPI
-
-After creating the virtualenv and activating it, we recommend using
-[pip](https://pip.pypa.io/en/stable/) in order to install **MetaData**:
-
-```bash
-pip install metad
-```
-
-This will pull and install the latest stable release from [PyPI](https://pypi.org/).
---></div>
-<div class="section" id="install-from-source">
-<h2>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h2>
-<p>With your virtualenv activated, you can clone the repository and install it from
-source by running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> on the <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:data-dev/MetaData.git
-<span class="nb">cd</span> MetaData
-git checkout stable
-make install
-</pre></div>
-</div>
-</div>
-<div class="section" id="install-for-development">
-<h2>Install for Development<a class="headerlink" href="#install-for-development" title="Permalink to this headline">¶</a></h2>
-<p>If you want to contribute to the project, a few more steps are required to make the project ready
-for development.</p>
-<p>Please head to the <a class="reference external" href="https://data-dev.github.io/MetaData/contributing.html#get-started">Contributing Guide</a>
-for more details about this process.</p>
+<p>This will pull and install the latest stable release from <a class="reference external" href="https://pypi.org/">PyPi</a>.</p>
+<p>If you want to install from source or contribute to the project please read the
+<a class="reference external" href="https://hdi-project.github.io/DataTracer/contributing.html#get-started">Contributing Guide</a>.</p>
 </div>
 </div>
 <div class="section" id="quickstart">
@@ -286,11 +258,12 @@ getting started with <strong>MetaData</strong>.</p>
 <h2>Creating Metadata Objects<a class="headerlink" href="#creating-metadata-objects" title="Permalink to this headline">¶</a></h2>
 <p>You can also help create Metadata objects from scratch. The following code will create a
 <code class="docutils literal notranslate"><span class="pre">MetaData</span></code> object, add a table, and then save it to a JSON file.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metad</span> <span class="kn">import</span> <span class="n">MetaData</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metad</span> <span class="kn">import</span> <span class="n">MetaData</span>
 
 <span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">()</span>
 
 <span class="n">metadata</span><span class="o">.</span><span class="n">add_table</span><span class="p">({</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
     <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
     <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -301,7 +274,7 @@ getting started with <strong>MetaData</strong>.</p>
 </pre></div>
 </div>
 <p>Then, to export this object to a JSON file, you can run the following:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>metadata.to_json(&quot;your_metadata.json&quot;)
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;your_metadata.json&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -309,9 +282,9 @@ getting started with <strong>MetaData</strong>.</p>
 <h2>Validating JSON Files<a class="headerlink" href="#validating-json-files" title="Permalink to this headline">¶</a></h2>
 <p>The core functionality of this library is to validate JSON files. The following code will load
 the metadata file for the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> dataset and validate it.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metad</span> <span class="kn">import</span> <span class="n">MetaData</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">metad</span> <span class="kn">import</span> <span class="n">MetaData</span>
 
-<span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;examples/hello_world/metadata.json&quot;</span><span class="p">)</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;your_metadata.json&quot;</span><span class="p">)</span>
 <span class="n">metadata</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -319,8 +292,8 @@ the metadata file for the <code class="docutils literal notranslate"><span class
 </div>
 <div class="section" id="what-s-next">
 <h1>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h1>
-<p>For more details about <strong>MetaData</strong> and all its possibilities
-and features, please check the <a class="reference external" href="https://data-dev.github.io/MetaData/">documentation site</a>.</p>
+<p>For more details about <strong>MetaData</strong> and all its possibilities and features, please check the
+<a class="reference external" href="https://data-dev.github.io/MetaData/">documentation site</a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">

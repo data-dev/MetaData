@@ -86,8 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="readme.html">MetaData</a></li>
 <li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-source">Install from source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#install-for-development">Install for Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-with-pip">Install with pip</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
@@ -220,26 +219,32 @@
 <p>The root object of a Metadata.JSON object contains the following fields.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Field</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>path</p></td>
-<td><p>This is a string representing the path to the dataset.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Path to the dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p>tables</p></td>
-<td><p>This is a list of <code class="docutils literal notranslate"><span class="pre">Table</span></code> objects.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tables</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">List[Table]</span></code></p></td>
+<td><p>Tables that compose this dataset.</p></td>
 </tr>
-<tr class="row-even"><td><p>foreign_keys</p></td>
-<td><p>This is a list of <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> objects.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">foreign_keys</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">List[ForeignKey]</span></code></p></td>
+<td><p>Reletionships between the tables of this dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p>constraints</p></td>
-<td><p>This is a list of <code class="docutils literal notranslate"><span class="pre">Constraint</span></code> objects.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">constraints</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">List[Constraint]</span></code></p></td>
+<td><p>Constraints of this dataset.</p></td>
 </tr>
 </tbody>
 </table>
@@ -248,64 +253,84 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">Table</span></code> object contains the following fields.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Field</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>path</p></td>
-<td><p>This is the path to the CSV file containing the table.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Unique id for the table.</p></td>
 </tr>
-<tr class="row-odd"><td><p>name</p></td>
-<td><p>This is the name of the table.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Path to the CSV file containing the table.</p></td>
 </tr>
-<tr class="row-even"><td><p>primary_key</p></td>
-<td><p>This can be either (1) a string representing the primary key column or (2) a list of strings representing the primary key columns.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Name of the table.</p></td>
 </tr>
-<tr class="row-odd"><td><p>time_index</p></td>
-<td><p>This string specifies the column that is the time index.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">primary_key</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">List[String]</span></code></p></td>
+<td><p>Name of the column (or list of columns) that compose the primary key of the table.</p></td>
 </tr>
-<tr class="row-even"><td><p>headers</p></td>
-<td><p>This boolean indicates whether the file contains a header row.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">time_index</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Name of the time index column.</p></td>
 </tr>
-<tr class="row-odd"><td><p>number_of_rows</p></td>
-<td><p>This contains the number of rows in the table.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">headers</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code></p></td>
+<td><p>Whether the CSV file indicated by <code class="docutils literal notranslate"><span class="pre">path</span></code> contains a header row.</p></td>
 </tr>
-<tr class="row-even"><td><p>fields</p></td>
-<td><p>This is a list of <code class="docutils literal notranslate"><span class="pre">Field</span></code> objects.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">number_of_rows</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Integer</span></code></p></td>
+<td><p>Number of rows in the table.</p></td>
 </tr>
-<tr class="row-odd"><td><p>system</p></td>
-<td><p>This is the system the table originated from.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fields</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">List[Field]</span></code></p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>application</p></td>
-<td><p>This is the application the table originated from.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">system</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>System to which this table belongs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">application</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Application to which this table belongs.</p></td>
 </tr>
 </tbody>
 </table>
 <p>Each field in the <code class="docutils literal notranslate"><span class="pre">Table</span></code> object is specified by a dictionary containing:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Field</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>name</p></td>
-<td><p>This is a string representing the name of the field.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Name of the field.</p></td>
 </tr>
-<tr class="row-odd"><td><p>data_type</p></td>
-<td><p>This is the data type of the field.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">data_type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Data type of the field.</p></td>
 </tr>
-<tr class="row-even"><td><p>data_subtype</p></td>
-<td><p>This is the subtype which is only defined for some types.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data_subtype</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Data subtype of the field.</p></td>
 </tr>
 </tbody>
 </table>
@@ -332,29 +357,35 @@
 </div>
 <div class="section" id="foreign-keys">
 <h2>Foreign Keys<a class="headerlink" href="#foreign-keys" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> object contains the following fields.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> object represents a relation between two tables and contains the following fields.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Field</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>table</p></td>
-<td><p>This is a string representing the child table.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">table</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Id of the child table.</p></td>
 </tr>
-<tr class="row-odd"><td><p>field</p></td>
-<td><p>This can be either (1) a string representing the foreign key column or (2) a list of strings representing the foreign key columns.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">field</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">List[STring]</span></code></p></td>
+<td><p>Name of the column (or list of columns) from the child table that form this relationship.</p></td>
 </tr>
-<tr class="row-even"><td><p>ref_table</p></td>
-<td><p>This is a string representing the parent table.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ref_table</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Id of the parent table.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ref_field</p></td>
-<td><p>This can be either (1) a string representing the foreign key column or (2) a list of strings representing the foreign key columns.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ref_field</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">List[STring]</span></code></p></td>
+<td><p>Name of the column (or list of columns) from the parent table that form this relationship.</p></td>
 </tr>
 </tbody>
 </table>
@@ -364,43 +395,52 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">Constraint</span></code> object contains the following fields.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Field</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>constraint_type</p></td>
-<td><p>This is the type of <code class="docutils literal notranslate"><span class="pre">Constraint</span></code>.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">constraint_type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Type of <code class="docutils literal notranslate"><span class="pre">Constraint</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>fields_under_consideration</p></td>
-<td><p>This is the field(s) of interest.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fields_under_consideration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">List[ConstraintField]</span></code></p></td>
+<td><p>Name of the fields of interest.</p></td>
 </tr>
-<tr class="row-even"><td><p>related_fields</p></td>
-<td><p>This is the related field(s) that contribute to the field(s) of interest.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">related_fields</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">List[ConstraintField]</span></code></p></td>
+<td><p>Name of the fields that contribute to the field(s) of interest.</p></td>
 </tr>
 </tbody>
 </table>
 <p>Each field in the <code class="docutils literal notranslate"><span class="pre">Contraint</span></code> object is specified by a dictionary containing:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Field</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>table</p></td>
-<td><p>The name of the table.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">table</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Id of the table to which the field belongs.</p></td>
 </tr>
-<tr class="row-odd"><td><p>field</p></td>
-<td><p>The name of the column.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">field</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p>Name of the field.</p></td>
 </tr>
 </tbody>
 </table>
