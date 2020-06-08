@@ -69,7 +69,9 @@ class MySQLConnector(BaseConnector):
     def _tables(self, cursor):
         tables = []
         for table_name in self._table_names(cursor):
-            tables.append(self._table_metadata(cursor, table_name))
+            table_metadata = self._table_metadata(cursor, table_name)
+            table_metadata["id"] = table_name  # table names are unique
+            tables.append(table_metadata)
         return tables
 
     def _foreign_keys(self, cursor):

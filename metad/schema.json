@@ -17,6 +17,10 @@
             "items": {
                 "type": "object",
                 "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique id for the table."
+                    },
                     "path": {
                         "type": "string",
                         "description": "The path to the CSV file."
@@ -97,7 +101,7 @@
                         "description": "This is the application the table came from."
                     }
                 },
-                "required": ["name", "fields"]
+                "required": ["id", "fields"]
             }
         },
         "foreign_keys": {
@@ -108,7 +112,7 @@
                 "properties": {
                     "table": {
                         "type": "string",
-                        "description": "The name of the child table."
+                        "description": "The id of the child table."
                     },
                     "field": {
                         "anyOf": [
@@ -127,7 +131,7 @@
                     },
                     "ref_table": {
                         "type": "string",
-                        "description": "The name of the child table."
+                        "description": "The id of the child table."
                     },
                     "ref_field": {
                         "anyOf": [
@@ -165,7 +169,7 @@
                             "properties": {
                                 "table": {
                                     "type": "string",
-                                    "description": "The table to which the field belongs."
+                                    "description": "The id of the table to which the field belongs."
                                 }, 
                                 "field": {
                                     "type": "string",
@@ -181,7 +185,7 @@
                             "properties": {
                                 "table": {
                                     "type": "string",
-                                    "description": "The table to which the field belongs."
+                                    "description": "The id of the table to which the field belongs."
                                 }, 
                                 "field": {
                                     "type": "string",

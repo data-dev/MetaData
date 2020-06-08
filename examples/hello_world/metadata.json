@@ -2,6 +2,7 @@
     "path": "/path/to/dataset",
     "tables": [
         {
+            "id": "68d22534-a598-11ea-8ab6-149d997bb0cb",
             "name": "users",
             "fields": [
                 {"name": "user_id"},
@@ -11,6 +12,7 @@
             ]
         },
         {
+            "id": "7006f500-a598-11ea-8ab6-149d997bb0cb",
             "name": "transactions",
             "fields": [
                 {"name": "tx_id"},
@@ -23,15 +25,15 @@
     ],
     "foreign_keys": [
         {
-            "table": "transactions",
+            "table": "7006f500-a598-11ea-8ab6-149d997bb0cb",
             "field": "tx_uid",
-            "ref_table": "users",
+            "ref_table": "68d22534-a598-11ea-8ab6-149d997bb0cb",
             "ref_field": "user_id"
         },
         {
-            "table": "transactions",
+            "table": "7006f500-a598-11ea-8ab6-149d997bb0cb",
             "field": ["sender_first", "sender_last"],
-            "ref_table": "users",
+            "ref_table": "68d22534-a598-11ea-8ab6-149d997bb0cb",
             "ref_field": ["firstname", "lastname"]
         }
     ],
@@ -39,10 +41,10 @@
         {
             "constraint_type": "validity",
             "fields_under_consideration": [
-                {"table": "users", "field": "total"}
+                {"table": "68d22534-a598-11ea-8ab6-149d997bb0cb", "field": "total"}
             ],
             "related_fields": [
-                {"table": "transactions", "field": "amount"}
+                {"table": "7006f500-a598-11ea-8ab6-149d997bb0cb", "field": "amount"}
             ]
         }
     ]

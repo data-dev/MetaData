@@ -1,6 +1,7 @@
 {
   "tables": [
     {
+      "id": "molecule",
       "name": "molecule",
       "primary_key": "molecule_id",
       "fields": [
@@ -15,6 +16,7 @@
       ]
     },
     {
+      "id": "position",
       "name": "position",
       "primary_key": [
         "molecule_id",

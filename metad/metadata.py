@@ -89,12 +89,12 @@ class MetaData():
         validate(self.data)
 
         # Assert that field names are unique
-        table_names, field_names = [], []
+        table_ids, field_names = [], []
         for table in self.data["tables"]:
-            table_names.append(table["name"])
+            table_ids.append(table["id"])
             for field in table["fields"]:
-                field_names.append((table["name"], field["name"]))
-        assert len(table_names) == len(set(table_names))
+                field_names.append((table["id"], field["name"]))
+        assert len(table_ids) == len(set(table_ids))
         assert len(field_names) == len(set(field_names))
 
         # Assert that the foreign key fields exist

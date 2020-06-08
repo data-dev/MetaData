@@ -19,6 +19,7 @@ class TestMetaData(TestCase):
     def test_creation(self):
         metadata = MetaData()
         metadata.add_table({
+            "id": "users",
             "name": "users",
             "fields": [
                 {"name": "user_id", "data_type": "id"},
